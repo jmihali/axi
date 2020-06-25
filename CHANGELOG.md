@@ -13,6 +13,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
                         throughput than `axi_to_mem`.
 - `Bender`: Add dependency `tech_cells_generic` `v0.2.1` for generic SRAM macro for simulation.
 - Add last level cache `axi_llc_top`.
+  - Configurable in set-associativity, number of cache lines and number of blocks.
+  - Data-flow driven design, simultaneous read, write, eviction and refill.
+  - Each set can be configured to be directly addressable as scratch pad memory. This
+    can be configured, dynamically while the rest is used as cache.
+  - User triggered flush.
+  - Bypass when not accessing the cached or SPM mapped address regions.
+  - Integrated marchX test for SRAM used for the tag storage.
 
 ### Changed
 - `tb_axi_xbar`: Add parameters, test wider range of configurations in CI.
