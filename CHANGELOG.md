@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `axi_to_mem_banked`:  AXI4+ATOP slave to control on chip memory, with banking support, higher
                         throughput than `axi_to_mem`.
 - `Bender`: Add dependency `tech_cells_generic` `v0.2.1` for generic SRAM macro for simulation.
-- Add last level cache `axi_llc_top`.
+- `axi_llc_top`: AXI4+ATOP last level cache.
   - Configurable in set-associativity, number of cache lines and number of blocks.
   - Data-flow driven design, simultaneous read, write, eviction and refill.
   - Each set can be configured to be directly addressable as scratch pad memory. This
