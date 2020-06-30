@@ -1265,7 +1265,7 @@ package axi_test;
           // Either use the actual data, or save the random generated.
           for (int unsigned i = 0; i < (DW/8); i++) begin
             if (this.memory_q.exists(byte_addr)) begin
-              r_beat.r_data[i*(DW/8)+:(DW/8)] = this.memory_q[byte_addr];
+              r_beat.r_data[i*8+:8] = this.memory_q[byte_addr];
             end else begin
               this.memory_q[byte_addr] = r_beat.r_data[i*8+:8];
             end
@@ -1837,7 +1837,7 @@ package axi_test;
               axi_pkg::beat_addr(aw_beat.ax_addr, aw_beat.ax_size, aw_beat.ax_len, aw_beat.ax_burst,
                   i), BUS_SIZE);
           for (int j = 0; j < axi_pkg::num_bytes(BUS_SIZE); j++) begin
-            if (b_beat.b_resp inside {axi_pkg::RESP_EXOKAY, axi_pkg::RESP_EXOKAY}) begin
+            if (b_beat.b_resp inside {axi_pkg::RESP_OKAY, axi_pkg::RESP_EXOKAY}) begin
               memory_q[bus_address+j].delete(0);
             end else begin
               memory_q[bus_address+j].delete(memory_q[bus_address+j].size() - 1);
@@ -1883,8 +1883,8 @@ package axi_test;
               exp_data  = this.memory_q[beat_address+j];
               tst_data  = exp_data.find with (item === 8'hxx || item === act_data);
               assert (tst_data.size() > 0) else begin
-                $warning("Unexpected RData ID: %0h Addr: %0h Byte Idx: %0h Exp Data : %0h Data: %h",
-                r_beat.r_id, beat_address+j, idx_data, exp_data, act_data);
+                $warning("Unexpected RData ID: %0h Addr: %0h Byte Idx: %0h Exp Data : %0h Data: %h, BeatData: %h",
+                r_beat.r_id, beat_address+j, idx_data, exp_data, act_data, r_beat.r_data);
               end
             end
           end
