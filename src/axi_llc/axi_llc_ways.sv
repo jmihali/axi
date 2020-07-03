@@ -38,23 +38,23 @@ module axi_llc_ways #(
   input logic test_i,
   /// Way request payloads inputs. One array index for each unit which can make request to the
   /// data storage macros.
-  input  way_inp_t [3:0] way_inp_i,
+  input way_inp_t [3:0] way_inp_i,
   /// Way request is valid.
-  input  logic     [3:0] way_inp_valid_i,
+  input logic [3:0] way_inp_valid_i,
   /// Data way is ready for the request.
-  output logic     [3:0] way_inp_ready_o,
+  output logic [3:0] way_inp_ready_o,
   /// Way response payload to the evict unit.
-  output way_oup_t       evict_way_out_o,
+  output way_oup_t evict_way_out_o,
   /// Response to the evict unit is valid.
-  output logic           evict_way_out_valid_o,
+  output logic evict_way_out_valid_o,
   /// Evict unit is ready for the response.
-  input  logic           evict_way_out_ready_i,
+  input logic evict_way_out_ready_i,
   /// Way response payload to the read unit.
-  output way_oup_t       read_way_out_o,
+  output way_oup_t read_way_out_o,
   /// Response to the read unit is valid.
-  output logic           read_way_out_valid_o,
+  output logic read_way_out_valid_o,
   /// Read unit is ready for the response.
-  input  logic           read_way_out_ready_i
+  input logic read_way_out_ready_i
 );
   localparam int unsigned SelIdxWidth = cf_math_pkg::idx_width(Cfg.SetAssociativity);
   typedef logic [SelIdxWidth-1:0]          way_sel_t; // Binary representation of the way selection
