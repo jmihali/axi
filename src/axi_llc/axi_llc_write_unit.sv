@@ -39,43 +39,43 @@ module axi_llc_write_unit #(
   parameter type b_chan_t = logic
 ) (
   /// Clock, positive edge triggered.
-  input  logic     clk_i,
+  input logic clk_i,
   /// Asynchronous reset, active low.
-  input  logic     rst_ni,
+  input logic rst_ni,
   /// Testmode enable, active high.
-  input  logic     test_i,
+  input logic test_i,
   /// Write descriptor payload input.
-  input  desc_t    desc_i,
+  input desc_t desc_i,
   /// An input descriptor is valid.
-  input  logic     desc_valid_i,
+  input logic desc_valid_i,
   /// Unit is ready for accepting an input descriptor.
-  output logic     desc_ready_o,
+  output logic desc_ready_o,
   /// AXI slave port W channel payload input.
-  input  w_chan_t  w_chan_slv_i,
+  input w_chan_t w_chan_slv_i,
   /// AXI W beat is valid.
-  input  logic     w_chan_valid_i,
+  input logic w_chan_valid_i,
   /// AXI W beat is ready.
-  output logic     w_chan_ready_o,
+  output logic w_chan_ready_o,
   /// AXI slave port B channel payload output.
-  output b_chan_t  b_chan_slv_o,
+  output b_chan_t b_chan_slv_o,
   /// AXI B beat is valid.
-  output logic     b_chan_valid_o,
+  output logic b_chan_valid_o,
   /// AXI B Beat is ready.
-  input  logic     b_chan_ready_i,
+  input logic b_chan_ready_i,
   /// Request payload to the data ways.
   output way_inp_t way_inp_o,
   /// Data way request is valid.
-  output logic     way_inp_valid_o,
+  output logic way_inp_valid_o,
   /// Data way is ready for a request.
-  input  logic     way_inp_ready_i,
+  input logic way_inp_ready_i,
   /// Unlock signal payload for the line locking mechanism.
-  output lock_t    w_unlock_o,
+  output lock_t w_unlock_o,
   /// Unlock request.
   /// NOT AXI compliant!
-  output logic     w_unlock_req_o,
+  output logic w_unlock_req_o,
   /// Unlock request can be granted.
   /// NOT AXI compliant! Has to be `1'b1` so that the unit is active!
-  input  logic     w_unlock_gnt_i
+  input logic w_unlock_gnt_i
 );
   `include "common_cells/registers.svh"
   typedef logic [AxiCfg.AddrWidthFull-1:0] addr_t;
