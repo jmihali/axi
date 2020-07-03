@@ -37,58 +37,58 @@ module axi_llc_evict_unit #(
   parameter type b_chan_t = logic
 ) (
   /// Clock, positive edge triggered.
-  input clk_i,
+  input logic clk_i,
   /// Asynchronous reset, active low.
-  input rst_ni,
+  input logic rst_ni,
   /// Test mode enable, active high.
-  input test_i,
+  input logic test_i,
   /// Descriptor payload input. This descriptor comes from the hit_miss detection unit.
-  input  desc_t    desc_i,
+  input desc_t desc_i,
   /// Input descriptor is valid.
-  input  logic     desc_valid_i,
+  input logic desc_valid_i,
   /// Module is ready to accept a descriptor.
-  output logic     desc_ready_o,
+  output logic desc_ready_o,
   /// Descriptor payload output. This descriptor finished the eviction pipeline and goes
   /// to the refill pipeline.
-  output desc_t    desc_o,
+  output desc_t desc_o,
   /// Output descriptor is valid.
-  output logic     desc_valid_o,
+  output logic desc_valid_o,
   /// Downstream is ready to accept the output descriptor.
-  input  logic     desc_ready_i,
+  input logic desc_ready_i,
   /// Eviction request to the data ways. This comes from the W channel unit and will issue
   /// reads for cache lines that are evicted/written back.
   output way_inp_t way_inp_o,
   /// Data storage way request is valid.
-  output logic     way_inp_valid_o,
+  output logic way_inp_valid_o,
   /// Way is ready to accept the request.
-  input  logic     way_inp_ready_i,
+  input logic way_inp_ready_i,
   /// Response payload from the ways. This is the read data from the storage macros which is
   /// written back through the master port.
-  input  way_oup_t way_out_i,
+  input way_oup_t way_out_i,
   /// Data way has a valid response.
-  input  logic     way_out_valid_i,
+  input logic way_out_valid_i,
   /// Unit is ready to accept the response from the ways.
-  output logic     way_out_ready_o,
+  output logic way_out_ready_o,
   /// AW master channel payload.
   output aw_chan_t aw_chan_mst_o,
   /// AW beat is valid.
-  output logic     aw_chan_valid_o,
+  output logic aw_chan_valid_o,
   /// AW beat is ready.
-  input  logic     aw_chan_ready_i,
+  input logic aw_chan_ready_i,
   /// W master channel payload.
-  output w_chan_t  w_chan_mst_o,
+  output w_chan_t w_chan_mst_o,
   /// W beat is valid.
-  output logic     w_chan_valid_o,
+  output logic w_chan_valid_o,
   /// W beat is ready.
-  input  logic     w_chan_ready_i,
+  input logic w_chan_ready_i,
   /// B master channel payload.
-  input  b_chan_t  b_chan_mst_i,
+  input b_chan_t b_chan_mst_i,
   /// B beat is valid.
-  input  logic     b_chan_valid_i,
+  input logic b_chan_valid_i,
   /// B beat is ready.
-  output logic     b_chan_ready_o,
+  output logic b_chan_ready_o,
   /// A flush descriptor finished/destroyed in the eviction pipeline.
-  output logic     flush_desc_recv_o
+  output logic flush_desc_recv_o
 );
 
   // descriptor signals between AW master and eviction FIFO
