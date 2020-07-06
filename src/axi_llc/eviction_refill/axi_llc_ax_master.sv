@@ -14,9 +14,9 @@
 // Date:   27.05.2019
 
 /// This module acts as the AX master for either the eviction or the refill unit.
-/// When this unit gets a descripor it looks at the corresponding flag. If it is set,
-/// the AX register gets loaded with the ricght burst. The Sending of the AX vector is
-/// independednt of the further transmission of the descriptor, however the unit will
+/// When this unit gets a descriptor it looks at the corresponding flag. If it is set,
+/// the AX register gets loaded with the right burst. The Sending of the AX vector is
+/// independent of the further transmission of the descriptor, however the unit will
 /// wait with loading the next descriptor as long as the AX is not sent.
 ///
 /// Possible configurations for `cache_unit`:
