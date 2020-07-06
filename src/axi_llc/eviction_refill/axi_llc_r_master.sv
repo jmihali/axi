@@ -32,33 +32,33 @@ module axi_llc_r_master #(
   parameter type r_chan_t  = logic
 ) (
   /// Clock, positive edge triggered.
-  input  logic clk_i,
+  input logic clk_i,
   /// Asynchronous reset, active low.
-  input  logic rst_ni,
+  input logic rst_ni,
   /// Input descriptor payload.
-  input  desc_t    desc_i,
+  input desc_t desc_i,
   /// Input descriptor is valid.
-  input  logic     desc_valid_i,
+  input logic desc_valid_i,
   /// Unit is ready to accept a new descriptor.
-  output logic     desc_ready_o,
+  output logic desc_ready_o,
   /// Output descriptor payload.
-  output desc_t    desc_o,
+  output desc_t desc_o,
   /// The descriptor is valid to be transferred to the next unit.
-  output logic     desc_valid_o,
+  output logic desc_valid_o,
   /// The next unit is ready to accept the output descriptor.
-  input  logic     desc_ready_i,
+  input logic desc_ready_i,
   /// AXI R master channel payload.
-  input  r_chan_t  r_chan_mst_i,
+  input r_chan_t r_chan_mst_i,
   /// AXI R channel is valid.
-  input  logic     r_chan_valid_i,
+  input logic r_chan_valid_i,
   /// AXI R channel is ready.
-  output logic     r_chan_ready_o,
+  output logic r_chan_ready_o,
   /// Data way request payload. (Write data).
   output way_inp_t way_inp_o,
   /// Data way request is valid.
-  output logic     way_inp_valid_o,
+  output logic way_inp_valid_o,
   /// Data way is ready to accept a request.
-  input  logic     way_inp_ready_i
+  input logic way_inp_ready_i
 );
   `include "common_cells/registers.svh"
 
