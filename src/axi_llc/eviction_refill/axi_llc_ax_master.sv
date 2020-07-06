@@ -44,27 +44,27 @@ module axi_llc_ax_master #(
   parameter axi_llc_pkg::cache_unit_e  cache_unit = axi_llc_pkg::EvictUnit
 ) (
   /// Clock, poitive edge triggered.
-  input  logic     clk_i,
+  input logic clk_i,
   /// Asynchronous reset, active low.
-  input  logic     rst_ni,
+  input logic rst_ni,
   /// Input descripor payload.
-  input  desc_t    desc_i,
+  input desc_t desc_i,
   /// Input descriptor is valid.
-  input  logic     desc_valid_i,
+  input logic desc_valid_i,
   /// `axi_llc_ax_master` is ready to accept an descriptor.
-  output logic     desc_ready_o,
+  output logic desc_ready_o,
   /// Output descriptor paylaod.
-  output desc_t    desc_o,
+  output desc_t desc_o,
   /// Output descripor is valid .
-  output logic     desc_valid_o,
+  output logic desc_valid_o,
   /// Next unit is ready to accept the output descriptor.
-  input  logic     desc_ready_i,
+  input logic desc_ready_i,
   /// AXI AX master channel payload.
   output ax_chan_t ax_chan_mst_o,
   /// AXI AX master channel is valid.
-  output logic     ax_chan_valid_o,
+  output logic ax_chan_valid_o,
   /// AXI AX master channel is ready.
-  input  logic     ax_chan_ready_i
+  input logic ax_chan_ready_i
 );
   `include "common_cells/registers.svh"
   // The master port ID is one bit wider than the slave port one, see `axi_mux`
