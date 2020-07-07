@@ -38,6 +38,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
                              answer like a memory.
 
 ### Fixed
+- `axi_test:rand_axi_master`: Fix W strobe signal on narrow bursts.
 
 
 ## 0.23.1 - 2020-06-19
