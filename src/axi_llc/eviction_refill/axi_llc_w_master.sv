@@ -41,7 +41,7 @@ module axi_llc_w_master #(
   /// [`axi_llc_top`](module.axi_llc_top).
   ///
   /// Required struct definition in: `axi_llc_pkg`.
-  parameter axi_llc_pkg::llc_axi_cfg_t AxiCfg = axi_llc_pkg::llc_axi_cfg_t{default: '0},
+  parameter axi_llc_pkg::llc_axi_cfg_t AxiCfg = axi_llc_pkg::llc_axi_cfg_t'{default: '0},
   /// LLC descriptor type definition.
   parameter type desc_t = logic,
   /// Data way request payload definition.
