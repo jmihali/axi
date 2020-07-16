@@ -375,7 +375,7 @@ module axi_llc_tag_store #(
     .ONEHOT_WIDTH ( Cfg.SetAssociativity )
   ) i_onehot_to_bin (
     .onehot ( res.indicator ),
-    .bin    ( bin_ind         )
+    .bin    ( bin_ind       )
   );
 
   // Silence output when not in a mode where it is required.
