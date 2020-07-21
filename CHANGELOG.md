@@ -34,11 +34,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `axi_pkg`: Remove `xbar_cfg_t`, is now flat parameter list of `axi_xbar` and `axi_lite_xbar`.
 - `Bender`: Bump dependency `common_cells` to `v1.19.0`.
 - `axi_test:axi_rand_slave:` Add a mapped mode, where the salve will generate random data
-                             if the memory location was never accessed previously, and then
-                             answer like a memory.
+    if the memory location was never accessed previously, and then answer like a memory.
 
 ### Fixed
 - `axi_test:rand_axi_master`: Fix W strobe signal on narrow bursts.
+- `axi_lite_regs`: Fix undefined sizing concatenation warning.
 
 
 ## 0.23.1 - 2020-06-19
