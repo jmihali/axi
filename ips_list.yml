@@ -1,5 +1,5 @@
 common_cells:
-    commit: v1.19.0
+    commit: fix-compile-order
     group: pulp-platform
 
 common_verification:
